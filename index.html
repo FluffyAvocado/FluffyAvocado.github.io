@@ -6,25 +6,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed:700i" rel="stylesheet">
-  <link rel="icon" type="image/png" href="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
   <link rel="manifest" href="/manifest.json">
-  <script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
 
   <!-- External Modules -->
-
+  <script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed:700i" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
-
   <!-- End of External Modules -->
 
   <title>Facebook Cart Recovery Demo</title>
 </head>
 
 <body>
-
   <!-- PW Web SDK Initialization -->
   <script type="text/javascript">
     var Pushwoosh = Pushwoosh || [];
@@ -38,10 +35,10 @@
         inboxWidget: {
           enable: true,
           triggerId: "pwInbox",
-        }
+        }    
     }]);
     </script>
-    <!-- PW Web SDK Initialization -->
+    <!-- End of PW Web SDK Initialization -->
 
 <div>
   <img alt="pw-logo" width=100 src="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
@@ -50,7 +47,6 @@
 </div>
 
 <!-- Subscription Button -->
-
     <p class="text-center">
         <button type="button" class="btn btn-outline-info" onclick="Pushwoosh.subscribe()">Receive updates</button>
         <script>
@@ -59,19 +55,19 @@
           }]);
         </script>
     </p>
-
 <!-- End of Subscription Button -->
 
+<!-- Inbox Button -->
 <p class="text-center">
-    <button type="button" class="btn btn-outline-info" id=pwInbox>Inbox</button>
+    <button type="button" class="btn btn-outline-info" id="pwInbox">Inbox</button>
 </p>
-
+<!-- End of Inbox Button -->
 
   <h3>Albums available for purchase:</h2>
   <ul>
     <li>Beatles — Abbey Road</li>
     <li>Fleetwood Mac — Rumours</li>
-    <li> Led Zeppelin — IV</li>
+    <li>Led Zeppelin — IV</li>
     <li>Michael Jackson — Thriller</li>
     <li>Pink Floyd — The Dark Side of the Moon</li>
   </ul>
