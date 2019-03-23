@@ -34,7 +34,10 @@
         autoSubscribe: false, // or true. If true, prompts a user to subscribe for pushes upon SDK initialization
         inboxWidget: {
           enable: true,
-          triggerId: "pwInbox",
+          triggerId: "Inboxxed",
+          emptyInboxTitle: "Hey there",
+          emptyInboxText: "Looking good today!",
+          emptyInboxIconUrl: "https://pushon.pushwoosh.com/images/icon-empty-inbox.png"
         }    
     }]);
     </script>
@@ -57,15 +60,15 @@
     </p>
 <!-- End of Subscription Button -->
 
-<button type="button" id="pwInbox">Inbox</button>
+<button type="button" id="Inboxxed" onclick="Pushwoosh.pwinboxWidget.toggle(open?: boolean);">&</button>
+
+
 
 <!-- Inbox Button 
 <p class="text-center">
     <button type="button" class="btn btn-outline-info" id="pwInbox">Inbox</button>
 </p>
 End of Inbox Button -->
-
-<>
 
   <h3>Albums available for purchase:</h2>
   <ul>
