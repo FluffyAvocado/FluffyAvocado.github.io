@@ -30,11 +30,12 @@
         applicationCode: '4DC72-D205A', // you application code from Pushwoosh Control Panel
         safariWebsitePushID: 'https://infallible-edison-2a352b.netlify.com/', //  unique reverse-domain string, obtained in you Apple Developer Portal. Only needed if you send push notifications to Safari browser
         defaultNotificationTitle: 'Vinyl Shop', // sets a default title for push notifications
-        defaultNotificationImage: 'https://i.imgur.com/zukA8CZ.jpg', // URL to custom custom notification image
+        defaultNotificationImage: 'https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png', // URL to custom custom notification image
         autoSubscribe: false, // or true. If true, prompts a user to subscribe for pushes upon SDK initialization
         inboxWidget: {
           enable: true,
           triggerId: "Inboxxed",
+          appendTo: "#pwlogo",
           emptyInboxTitle: "Hey there",
           emptyInboxText: "Looking good today!",
           emptyInboxIconUrl: "https://pushon.pushwoosh.com/images/icon-empty-inbox.png"
@@ -44,7 +45,7 @@
     <!-- End of PW Web SDK Initialization -->
 
 <div>
-  <img alt="pw-logo" width=100 src="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
+  <img alt="pw-logo" width=100 id="pwlogo" src="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
   <h1>PUSHWOOSH</h1>
   <h2>FACEBOOK CART RECOVERY DEMO</h2>
 </div>
@@ -64,7 +65,7 @@
 
 <!-- Inbox Button -->
 <p class="text-center">
-    <button type="button" class="btn btn-outline-info" id="Inboxxed" onclick="Pushwoosh.pwinboxWidget.toggle(open?: true)">Inbox</button>
+    <button type="button" class="btn btn-outline-info" id="Inboxxed" onclick="Pushwoosh.pwinboxWidget.toggle(open?: boolean);">Inbox</button>
 </p>
 <!-- End of Inbox Button -->
 
