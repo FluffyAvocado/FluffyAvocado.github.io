@@ -18,6 +18,23 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
   <!-- End of External Modules -->
 
+  <!-- Facebook -->
+  <script>
+    const USER_REF = 'BP-'.concat(Math.random()); // REPLACE ON YOUR UNIQUE USER ID
+
+    function confirmOptIn() {
+        FB.AppEvents.logEvent('MessengerCheckboxUserConfirmation', null, {
+            'app_id': '355697025159350',
+            'page_id': '2183422628589019',
+            'ref': $('#productName').val().concat(' record. See ').concat(window.location.href),
+            'user_ref': USER_REF
+        });
+        
+        $(".btn").text("In cart");
+    }
+</script>
+<!-- End of Facebook -->
+
   <title>Cart Recovery Demo</title>
 </head>
 
@@ -39,6 +56,57 @@
     }]);
     </script>
     <!-- End of PW Web SDK Initialization -->
+
+
+   <!-- Facebook Related Code -->
+
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <form class="col-12 text-center">
+      <img src="https://i.imgur.com/zukA8CZ.jpg" alt="Record Player" align="middle" height="200" width="200">
+      <div class="row justify-content-center">
+        <div class="col-2">
+          <div class="form-group">
+            <label for="exampleFormControlSelect2">Choose a record you want to purchase</label>
+            <select class="form-control" id="productName">
+              <option>Michael Jackson — Thriller</option>
+              <option>Beatles — Abbey Road</option>
+              <option>Fleetwood Mac — Rumours</option>
+              <option>Pink Floyd — The Dark Side of the Moon</option>
+              <option>Led Zeppelin — IV</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    <script>
+        $(document).ready(function() {
+            $('.fb-messenger-checkbox').attr('user_ref', USER_REF);
+            $(".fb-messenger-checkbox").attr("origin", location.protocol.concat("//").concat(window.location.hostname));
+    
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '355697025159350',
+                    xfbml      : true,
+                    version    : 'v3.2'
+                });
+                FB.AppEvents.logPageView();
+            };
+    
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        });
+    </script>
+    <p><button type="button" onclick="confirmOptIn()" class="btn btn-outline-primary">Add to cart</button></p>
+    <div class="fb-messenger-checkbox" origin="<INIT IN JS>" page_id="2183422628589019" messenger_app_id="355697025159350" user_ref="<INIT IN JS>" allow_login="true" skin="light" size="xlarge" center_align="true">
+    </form>
+    </div>
+  </div>
+<!-- End of Facebook Related Code -->
 
 <div>
   <img alt="pw-logo" width=100 id="pwlogo" src="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
@@ -71,7 +139,6 @@
     <li>Michael Jackson — Thriller</li>
     <li>Pink Floyd — The Dark Side of the Moon</li>
   </ul>
-
 
 
   <hr>
