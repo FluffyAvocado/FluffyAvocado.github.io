@@ -22,3 +22,12 @@ img{
 .text-center{
     margin: 20px;
 }
+.footer {
+    text-align: center;
+    font-size: .8em;
+}
+table#table1{
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+}

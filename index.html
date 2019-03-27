@@ -75,20 +75,28 @@
       <img alt="pw-logo" width=100 id="pwlogo" src="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
       <h1>PUSHWOOSH</h1>
       <h2>FACEBOOK CART RECOVERY DEMO</h2>
+      <hr>
       <p class="text-center">Want to recieve updates and special offers?</p>
-      <p class="text-center">
-        <button type="button" class="btn btn-outline-info" id="SubscribeButton" onclick="Pushwoosh.subscribe()">Sign me
-          up!</button>
-        <script>
-          Pushwoosh.push(['onSubscribe', function (api) {
-            console.log('User successfully subscribed');
-          }]);
-        </script>
-      </p>
+      <div style="text-align:center">
+        <table id="table1">
+        <th style="vertical-align:auto"><p>
+          <button type="button" class="btn btn-outline-info" id="SubscribeButton" onclick="Pushwoosh.subscribe()">Sign me
+            up!</button>
+          <script>
+            Pushwoosh.push(['onSubscribe', function (api) {
+              console.log('User successfully subscribed');
+            }]);
+          </script></th>
+        <th style="vertical-align:auto">
+          <p id="Inboxxed">[Inbox]</p>
+        </th>
+        </table>
+        </div>
     </div>
   </div>
-  <!-- Facebook Related Code -->
 
+
+  <!-- Facebook Related Code -->
   <div class="container h-100">
     <div class="row h-100 justify-content-center align-items-center">
       <form class="col-12 text-center">
@@ -143,11 +151,11 @@
   <!-- End of Facebook Related Code -->
 
   <!-- Inbox Button -->
-  <div id="Inboxxed">(X)</div>
+  
   <!-- End of Inbox Button -->
 
   <hr>
-  <p>Powered by <a href="https://pushwoosh.com">Pushwoosh</a></p>
+  <p class="footer" >Powered by <a href="https://pushwoosh.com">Pushwoosh</a></p>
 </body>
 
 </html>
