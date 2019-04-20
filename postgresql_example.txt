@@ -1,0 +1,33 @@
+Задача: 
+
+Есть две таблицы. В одной просто N имейлов, в другой вся база имейлов в одной колонке и userid в другой. Необходимо получить userid для списка имейлов из первого файла. 
+
+Подготовка: 
+
+создаем таблицы в PostreSQL
+
+create table "emails" (emails text);
+create table "full" (emails text, userid text);
+
+Заливаем в таблицы информацию из CSV 
+
+copy "emails" from '/tmp/russia-1998-1999-emails_only.csv' with (format csv);
+copy "full" from '/tmp/usersandemailsSORTED.csv' with (format csv);
+
+Магия: 
+
+В обоих таблицах есть колонка emails, сравниваем их друг с другом. e и f — алиасы таблиц emails и full. Ограничиваем отрисовку 10 строками просто чтобы убедиться что нормально сравнилось. 
+
+select * from "emails" e join "full" f on e.emails=f.emails limit 10;
+
+Считаем количество совпадений
+
+select count(*) from "emails" e join "full" f on e.emails=f.emails;
+
+Вычленяем userid
+
+select f.userid from "full" f join "emails" e on e.emails=f.emails;
+
+Печатаем userid в output.csv
+
+copy (select f.userid from "full" f join "emails" e on e.emails=f.emails) to '/tmp/output.csv' with (format csv);
