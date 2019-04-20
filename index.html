@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/header-fixed.css">
 
   <!-- External Modules -->
   <script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
@@ -63,100 +65,159 @@
       autoSubscribe: false, // or true. If true, prompts a user to subscribe for pushes upon SDK initialization
       inboxWidget: {
         enable: true,
-        triggerId: "Inboxxed"
+        triggerId: "pw-inbox"
       }
     }]);
   </script>
   <!-- End of PW Web SDK Initialization -->
-
-
-  <header>
-    <div>
-      <img alt="pw-logo" width=100 id="pwlogo" src="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
-      <h1>PUSHWOOSH</h1>
-      <h2>FACEBOOK CART RECOVERY DEMO</h2>
-      <hr>
-      <p class="text-center">Want to recieve updates and special offers?</p>
-      <nav>
-      <div style="text-align:center">
-        <table id="table1">
-        <th style="vertical-align:auto"><p>
-          <button type="button" class="btn btn-outline-info" id="SubscribeButton" onclick="Pushwoosh.subscribe()">Sign me
-            up!</button>
+  <section>
+    <header class="header-fixed">
+      <div class="header-limiter">
+        <div class="logo-container">
+          <img id="pw-icon" alt="Pushwoosh" src="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
+          <h1 id="pw-title1">PUSHWOOSH DEMO</h1>
+        </div>
+        <nav>
+          <a href="https://fb-cart-recovery.pushwoosh.com/index.php?r=customer%2Fcreate-step-4-recovery-cart-configure&id=110"
+            target="_blank">FB Configurator</a>
+          <a href="https://infallible-edison-2a352b.netlify.com/" target="_blank">FB Enabled Page</a>
+          <a href="https://www.pushwoosh.com/platform-docs/pushwoosh-sdk/web-push-notifications/web-push-sdk-3.0"
+            target="_blank">WebSDK Guide</a>
+          <a id="pw-inbox" href="#">Inbox</a>
+          <button type="button" class="btn btn-outline-info" id="SubscribeButton" onclick="Pushwoosh.subscribe()">Sign
+            up</button>
           <script>
             Pushwoosh.push(['onSubscribe', function (api) {
               console.log('User successfully subscribed');
             }]);
-          </script></th>
-        <th style="vertical-align:auto">
-          <p id="Inboxxed">[Inbox]</p>
-        </th>
-        </table>
-        </div>
-      </nav>
-    </div>
-  </header>
+          </script>
+        </nav>
+      </div>
+    </header>
+  </section>
 
 
   <!-- Facebook Related Code -->
   <section>
-  <div class="container h-100">
-    <div class="row h-100 justify-content-center align-items-center">
-      <form class="col-12 text-center">
-        <div class="row justify-content-center">
-          <div class="col-2">
-            <div class="form-group">
-              <label for="exampleFormControlSelect2">Choose a record you want to purchase</label>
-              <select class="form-control" id="productName">
-                <option>Michael Jackson — Thriller</option>
-                <option>Beatles — Abbey Road</option>
-                <option>Fleetwood Mac — Rumours</option>
-                <option>Pink Floyd — The Dark Side of the Moon</option>
-                <option>Led Zeppelin — IV</option>
-              </select>
+    <div class="container h-100">
+      <div class="row h-100 justify-content-center align-items-center">
+        <form class="col-12 text-center">
+          <img src="https://i.imgur.com/zukA8CZ.jpg" alt="Record Player" align="middle" height="200" width="200">
+          <div class="row justify-content-center">
+            <div class="col-2">
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Choose a record you want to purchase</label>
+                <select class="form-control" id="productName">
+                  <option>Michael Jackson — Thriller</option>
+                  <option>Beatles — Abbey Road</option>
+                  <option>Fleetwood Mac — Rumours</option>
+                  <option>Pink Floyd — The Dark Side of the Moon</option>
+                  <option>Led Zeppelin — IV</option>
+                </select>
+              </div>
             </div>
           </div>
-        </div>
-        <script>
-          $(document).ready(function () {
-            $('.fb-messenger-checkbox').attr('user_ref', USER_REF);
-            $(".fb-messenger-checkbox").attr("origin", location.protocol.concat("//").concat(window.location
-              .hostname));
+          <script>
+            $(document).ready(function () {
+              $('.fb-messenger-checkbox').attr('user_ref', USER_REF);
+              $(".fb-messenger-checkbox").attr("origin", location.protocol.concat("//").concat(window.location
+                .hostname));
 
-            window.fbAsyncInit = function () {
-              FB.init({
-                appId: '355697025159350',
-                xfbml: true,
-                version: 'v3.2'
-              });
-              FB.AppEvents.logPageView();
-            };
+              window.fbAsyncInit = function () {
+                FB.init({
+                  appId: '355697025159350',
+                  xfbml: true,
+                  version: 'v3.2'
+                });
+                FB.AppEvents.logPageView();
+              };
 
-            (function (d, s, id) {
-              var js, fjs = d.getElementsByTagName(s)[0];
-              if (d.getElementById(id)) {
-                return;
-              }
-              js = d.createElement(s);
-              js.id = id;
-              js.src = 'https://connect.facebook.net/en_US/sdk.js';
-              fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-          });
-        </script>
-        <p><button type="button" onclick="confirmOptIn()" class="btn btn-outline-primary">Add to cart</button></p>
-        <div class="fb-messenger-checkbox" origin="<INIT IN JS>" page_id="2183422628589019"
-          messenger_app_id="355697025159350" user_ref="<INIT IN JS>" allow_login="true" skin="light" size="xlarge"
-          center_align="true">
-      </form>
+              (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {
+                  return;
+                }
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk.js';
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));
+            });
+          </script>
+          <p><button type="button" onclick="confirmOptIn()" class="btn btn-outline-primary">Add to cart</button></p>
+          <div class="fb-messenger-checkbox" origin="<INIT IN JS>" page_id="2183422628589019"
+            messenger_app_id="355697025159350" user_ref="<INIT IN JS>" allow_login="true" skin="light" size="xlarge"
+            center_align="true">
+        </form>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
   <!-- End of Facebook Related Code -->
 
 
   <hr>
-  <footer class="footer" >Powered by <a href="https://pushwoosh.com">Pushwoosh</a></footer>
+  <footer class="footer">Powered by <a href="https://pushwoosh.com">Pushwoosh</a></footer>
+
+  <script>
+    'use strict';
+
+    // Asking user for UserID
+    let UserId = prompt("What's your User ID?", '');
+
+    // Checking if the UserID was provided
+    if (UserId == null || UserId == "") {
+      console.log('We need your UserID to proceed!');
+    } else {
+
+      // Setting UserID
+      Pushwoosh.push(function (api) {
+        api.registerUser(UserId);
+        console.log(UserId);
+      });
+
+      // Actions when user declined pushes
+      Pushwoosh.push(['onPermissionDenied', function (api) {
+        console.log('Permission for pushes declined');
+
+        api.setTags({
+          'isRegistered': false,
+          'UserId': UserId,
+        });
+        console.log('isRegistered Tag sent with FALSE value');
+
+        api.postEvent('siteOpen', {
+          isRegistered: false,
+          UserId: UserId
+        });
+        console.log('PostEvent sent, but isRegistered is FALSE');
+
+      }]);
+
+      // Actions when user allowed pushes
+      Pushwoosh.push(['onPermissionGranted', function (api) {
+        console.log('Permission for pushes granted');
+
+        api.setTags({
+          'isRegistered': true,
+          'UserId': UserId,
+        });
+        console.log('isRegistered Tag sent with TRUE value');
+
+        api.postEvent('siteOpen', {
+          isRegistered: true,
+          UserId: UserId
+        });
+        console.log('PostEvent sent, isRegistered is TRUE');
+
+        api.getTags();
+        console.log(api.getTags());
+
+      }]);
+
+    }
+  </script>
+
+
 </body>
 
 </html>
