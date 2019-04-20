@@ -46,12 +46,6 @@
   <title>Cart Recovery Demo</title>
 </head>
 
-
-
-
-
-
-
 <body>
   <!-- PW Web SDK Initialization -->
   <script type="text/javascript">
@@ -74,8 +68,10 @@
     <header class="header-fixed">
       <div class="header-limiter">
         <div class="logo-container">
-          <img id="pw-icon" alt="Pushwoosh" src="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
-          <h1 id="pw-title1">PUSHWOOSH DEMO</h1>
+          <a href="https://pushwoosh.com" target="_blank">
+            <img id="pw-icon" alt="Pushwoosh logo" src="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
+          </a>
+          <h1 id="pw-title">PUSHWOOSH DEMO</h1>
         </div>
         <nav>
           <a href="https://fb-cart-recovery.pushwoosh.com/index.php?r=customer%2Fcreate-step-4-recovery-cart-configure&id=111"
@@ -143,7 +139,8 @@
               }(document, 'script', 'facebook-jssdk'));
             });
           </script>
-          <p><button type="button" onclick="confirmOptIn()" class="btn btn-outline-primary" id="fb-button">Add to cart</button></p>
+          <p><button type="button" onclick="confirmOptIn()" class="btn btn-outline-primary" id="fb-button">Add to
+              cart</button></p>
           <div class="fb-messenger-checkbox" origin="<INIT IN JS>" page_id="2183422628589019"
             messenger_app_id="355697025159350" user_ref="<INIT IN JS>" allow_login="true" skin="light" size="xlarge"
             center_align="true">
@@ -155,8 +152,9 @@
 
 
   <hr>
-  <footer class="footer">Powered by <a href="https://pushwoosh.com">Pushwoosh</a></footer>
+  <footer class="footer">Powered by <a href="https://pushwoosh.com" target="_blank">Pushwoosh</a></footer>
 
+  <!-- Calling Pushwoosh API -->
   <script>
     'use strict';
 
@@ -215,6 +213,7 @@
 
     }
   </script>
+  <!-- End of Pushwoosh API -->
 
 
 </body>
