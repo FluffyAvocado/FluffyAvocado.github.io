@@ -38,7 +38,7 @@
         'user_ref': USER_REF
       });
 
-      $(".btn").text("In cart");
+      $("#fb-button").text("In cart");
     }
   </script>
   <!-- End of Facebook -->
@@ -144,7 +144,7 @@
               }(document, 'script', 'facebook-jssdk'));
             });
           </script>
-          <p><button type="button" onclick="confirmOptIn()" class="btn btn-outline-primary">Add to cart</button></p>
+          <p><button type="button" onclick="confirmOptIn()" class="btn btn-outline-primary" id="fb-button">Add to cart</button></p>
           <div class="fb-messenger-checkbox" origin="<INIT IN JS>" page_id="2183422628589019"
             messenger_app_id="355697025159350" user_ref="<INIT IN JS>" allow_login="true" skin="light" size="xlarge"
             center_align="true">
