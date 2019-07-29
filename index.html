@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/header-fixed.css">
 
   <!-- External Modules -->
-  <script type="text/javascript" src="//cdn.pushwoosh.com/webpush/v3/pushwoosh-web-notifications.js" async></script>
+  <script type="text/javascript" src="https://cdn.pushwoosh.com/facebooksdk/pw-PWSDK.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Condensed:700i" rel="stylesheet">
   <link rel="icon" type="image/png" href="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -57,7 +57,7 @@
 
 <body>
   <!-- PW Web SDK Initialization -->
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     var Pushwoosh = Pushwoosh || [];
     Pushwoosh.push(['init', {
       logLevel: 'debug', // possible values: error, info, debug
@@ -71,7 +71,29 @@
         triggerId: "pw-inbox"
       }
     }]);
+  </script> -->
+
+  <script type="text/javascript">
+    var PWSDK = PWSDK || [];
+    PWSDK.push({
+      cmd: 'init', // required
+      applicationCode: '07E99-FF886', //required (string)
+      ASCPageId: '0-15', //required (string | number)
+
+      // customization params
+      ASCSize: 'large', // optional ('small' | 'medium' | 'large' | 'standard' | 'xlarge')
+      ASCSkin: 'light', // optional ('light' | 'dark')
+      ASCAlignCenter: false, // optional (boolean)
+      ASCAllowLogin: true, // optional (boolean)
+      ASCContainerClass: 'pwasc-container' // optional (string)
+      inboxWidget: {
+        enable: true,
+        triggerId: "pw-inbox"
+      }
+    });
   </script>
+
+
   <!-- End of PW Web SDK Initialization -->
 
   <div class="grid">
