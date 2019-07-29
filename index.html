@@ -64,158 +64,162 @@
     }]);
   </script>
   <!-- End of PW Web SDK Initialization -->
-  <section>
-    <header class="header-fixed">
-      <div class="header-limiter">
-        <div class="logo-container">
-          <a href="https://pushwoosh.com" target="_blank">
-            <img id="pw-icon" alt="Pushwoosh logo" src="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
-          </a>
-          <h1 id="pw-title">PUSHWOOSH DEMO</h1>
-        </div>
-        <nav>
-          <a href="https://fb-cart-recovery.pushwoosh.com/index.php?r=customer%2Fcreate-step-4-recovery-cart-configure&id=111"
-            target="_blank">FB Configurator</a>
-          <a href="https://www.pushwoosh.com/platform-docs/pushwoosh-sdk/web-push-notifications/web-push-sdk-3.0"
-            target="_blank">WebSDK Guide</a>
-          <a id="pw-inbox" href="#">Inbox</a>
-          <button type="button" class="btn btn-outline-info" id="SubscribeButton" onclick="Pushwoosh.subscribe()">Sign
-            up</button>
-          <script>
-            Pushwoosh.push(['onSubscribe', function (api) {
-              console.log('User successfully subscribed');
-            }]);
-          </script>
-        </nav>
-      </div>
-    </header>
-  </section>
 
+  <div class="grid">
 
-  <!-- Facebook Related Code -->
-  <section>
-    <div class="container h-100">
-      <div class="row h-100 justify-content-center align-items-center">
-        <form class="col-12 text-center">
-          <img src="https://i.imgur.com/zukA8CZ.jpg" alt="Record Player" align="middle" height="200" width="200">
-          <div class="row justify-content-center">
-            <div class="col-2">
-              <div class="form-group">
-                <label for="exampleFormControlSelect2">Choose a record you want to purchase</label>
-                <select class="form-control" id="productName">
-                  <option>Michael Jackson — Thriller</option>
-                  <option>Beatles — Abbey Road</option>
-                  <option>Fleetwood Mac — Rumours</option>
-                  <option>Pink Floyd — The Dark Side of the Moon</option>
-                  <option>Led Zeppelin — IV</option>
-                </select>
-              </div>
-            </div>
+    <!-- Header -->
+    <section class="grid-header">
+      <header class="header-fixed">
+        <div class="header-limiter">
+          <div class="logo-container">
+            <a href="https://pushwoosh.com" target="_blank">
+              <img id="pw-icon" alt="Pushwoosh logo" src="https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png">
+            </a>
+            <h1 id="pw-title">PUSHWOOSH DEMO</h1>
           </div>
-          <script>
-            $(document).ready(function () {
-              $('.fb-messenger-checkbox').attr('user_ref', USER_REF);
-              $(".fb-messenger-checkbox").attr("origin", location.protocol.concat("//").concat(window.location
-                .hostname));
+          <nav>
+            <a href="https://fb-cart-recovery.pushwoosh.com/index.php?r=customer%2Fcreate-step-4-recovery-cart-configure&id=111"
+              target="_blank">FB Configurator</a>
+            <a href="https://www.pushwoosh.com/platform-docs/pushwoosh-sdk/web-push-notifications/web-push-sdk-3.0"
+              target="_blank">WebSDK Guide</a>
+            <a id="pw-inbox" href="#">Inbox</a>
+            <button type="button" class="btn btn-outline-info" id="SubscribeButton" onclick="Pushwoosh.subscribe()">Sign
+              up</button>
+            <script>
+              Pushwoosh.push(['onSubscribe', function (api) {
+                console.log('User successfully subscribed');
+              }]);
+            </script>
+          </nav>
+        </div>
+      </header>
+    </section>
+    <!-- End of Header -->
 
-              window.fbAsyncInit = function () {
-                FB.init({
-                  appId: '355697025159350',
-                  xfbml: true,
-                  version: 'v3.2'
-                });
-                FB.AppEvents.logPageView();
-              };
-
-              (function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {
-                  return;
-                }
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'https://connect.facebook.net/en_US/sdk.js';
-                fjs.parentNode.insertBefore(js, fjs);
-              }(document, 'script', 'facebook-jssdk'));
-            });
-          </script>
-          <p><button type="button" onclick="confirmOptIn()" class="btn btn-outline-primary" id="fb-button">Add to
-              cart</button></p>
-          <div class="fb-messenger-checkbox" origin="<INIT IN JS>" page_id="2183422628589019"
-            messenger_app_id="355697025159350" user_ref="<INIT IN JS>" allow_login="true" skin="light" size="xlarge"
-            center_align="true">
-        </form>
+    <!-- Content -->
+    <section class="grid-content">
+      <img src="https://i.imgur.com/zukA8CZ.jpg" alt="Record Player" align="middle" height="200" width="200">
+      <div class="col-2">
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">Choose a record you want to purchase</label>
+          <select class="form-control" id="productName">
+            <option>Michael Jackson — Thriller</option>
+            <option>Beatles — Abbey Road</option>
+            <option>Fleetwood Mac — Rumours</option>
+            <option>Pink Floyd — The Dark Side of the Moon</option>
+            <option>Led Zeppelin — IV</option>
+          </select>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- End of Facebook Related Code -->
+      <!-- End of Content -->
 
+      <!-- FB Button -->
+      <script>
+        $(document).ready(function () {
+          $('.fb-messenger-checkbox').attr('user_ref', USER_REF);
+          $(".fb-messenger-checkbox").attr("origin", location.protocol.concat("//").concat(window.location
+            .hostname));
 
-  <hr>
-  <footer class="footer">Powered by <a href="https://pushwoosh.com" target="_blank">Pushwoosh</a></footer>
+          window.fbAsyncInit = function () {
+            FB.init({
+              appId: '355697025159350',
+              xfbml: true,
+              version: 'v3.2'
+            });
+            FB.AppEvents.logPageView();
+          };
 
-  <!-- Calling Pushwoosh API -->
-  <script>
-    'use strict';
-
-    // Asking user for UserID
-    let UserId = prompt("What's your User ID?", '');
-
-    // Checking if the UserID was provided
-    if (UserId == null || UserId == "") {
-      console.log('We need your UserID to proceed!');
-    } else {
-
-      // Setting UserID
-      Pushwoosh.push(function (api) {
-        api.registerUser(UserId);
-        console.log(UserId);
-      });
-
-      // Actions when user declined pushes
-      Pushwoosh.push(['onPermissionDenied', function (api) {
-        console.log('Permission for pushes declined');
-
-        api.setTags({
-          'isRegistered': false,
-          'UserId': UserId,
+          (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+              return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk.js';
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
         });
-        console.log('isRegistered Tag sent with FALSE value');
+      </script>
+      <p><button type="button" onclick="confirmOptIn()" class="btn btn-outline-primary" id="fb-button">Add to
+          cart</button></p>
+      <div class="fb-messenger-checkbox" origin="<INIT IN JS>" page_id="2183422628589019"
+        messenger_app_id="355697025159350" user_ref="<INIT IN JS>" allow_login="true" skin="light" size="xlarge"
+        center_align="true">
+        <!-- End of FB Button -->
 
-        api.postEvent('siteOpen', {
-          isRegistered: false,
-          UserId: UserId
+    </section>
+
+    <!-- Footer -->
+    <section class="grid-footer">
+        <hr>
+      <footer class="footer">Powered by <a href="https://pushwoosh.com" target="_blank">Pushwoosh</a></footer>
+    </section>
+    <!-- End of Footer -->
+
+
+    <!-- Calling Pushwoosh API -->
+    <script>
+      'use strict';
+
+      // Asking user for UserID
+      let UserId = prompt("What's your User ID?", '');
+
+      // Checking if the UserID was provided
+      if (UserId == null || UserId == "") {
+        console.log('We need your UserID to proceed!');
+      } else {
+
+        // Setting UserID
+        Pushwoosh.push(function (api) {
+          api.registerUser(UserId);
+          console.log(UserId);
+
         });
-        console.log('PostEvent sent, but isRegistered is FALSE');
 
-      }]);
+        // Actions when user declined pushes
+        Pushwoosh.push(['onPermissionDenied', function (api) {
+          console.log('Permission for pushes declined');
 
-      // Actions when user allowed pushes
-      Pushwoosh.push(['onPermissionGranted', function (api) {
-        console.log('Permission for pushes granted');
+          api.setTags({
+            'isRegistered': false,
+            'UserId': UserId,
+          });
+          console.log('isRegistered Tag sent with FALSE value');
 
-        api.setTags({
-          'isRegistered': true,
-          'UserId': UserId,
-        });
-        console.log('isRegistered Tag sent with TRUE value');
+          api.postEvent('siteOpen', {
+            isRegistered: false,
+            UserId: UserId
+          });
+          console.log('PostEvent sent, but isRegistered is FALSE');
 
-        api.postEvent('siteOpen', {
-          isRegistered: true,
-          UserId: UserId
-        });
-        console.log('PostEvent sent, isRegistered is TRUE');
+        }]);
 
-        api.getTags();
-        console.log(api.getTags());
+        // Actions when user allowed pushes
+        Pushwoosh.push(['onPermissionGranted', function (api) {
+          console.log('Permission for pushes granted');
 
-      }]);
+          api.setTags({
+            'isRegistered': true,
+            'UserId': UserId,
+          });
+          console.log('isRegistered Tag sent with TRUE value');
 
-    }
-  </script>
-  <!-- End of Pushwoosh API -->
+          api.postEvent('siteOpen', {
+            isRegistered: true,
+            UserId: UserId
+          });
+          console.log('PostEvent sent, isRegistered is TRUE');
 
+          api.getTags();
+          console.log(api.getTags());
 
+        }]);
+      }
+    </script>
+    <!-- End of Pushwoosh API -->
+
+  </div>
 </body>
 
 </html>
