@@ -26,7 +26,7 @@
   <!-- End of External Modules -->
 
   <!-- Facebook -->
-  <script>
+  <!-- <script>
     const USER_REF = 'BP-'.concat(Math.random()); // REPLACE ON YOUR UNIQUE USER ID
 
     function confirmOptIn() {
@@ -40,6 +40,15 @@
 
       $("#fb-button").text("In cart");
     }
+  </script> -->
+  <script>
+    var PWSDK = PWSDK || [];
+
+    PWSDK.push({
+      cmd: 'init',
+      applicationCode: '07E99-FF886',
+      ASCPageId: 2183422628589019
+    });
   </script>
   <!-- End of Facebook -->
 
@@ -52,7 +61,7 @@
     var Pushwoosh = Pushwoosh || [];
     Pushwoosh.push(['init', {
       logLevel: 'debug', // possible values: error, info, debug
-      applicationCode: '4DC72-D205A', // you application code from Pushwoosh Control Panel
+      applicationCode: '07E99-FF886', // you application code from Pushwoosh Control Panel
       safariWebsitePushID: 'https://infallible-edison-2a352b.netlify.com/', //  unique reverse-domain string, obtained in you Apple Developer Portal. Only needed if you send push notifications to Safari browser
       defaultNotificationTitle: 'Vinyl Shop', // sets a default title for push notifications
       defaultNotificationImage: 'https://d1oprtn4hk65x9.cloudfront.net/ico_pw_push.png', // URL to custom custom notification image
@@ -114,7 +123,7 @@
       <!-- End of Content -->
 
       <!-- FB Button -->
-      <script>
+      <!-- <script>
         $(document).ready(function () {
           $('.fb-messenger-checkbox').attr('user_ref', USER_REF);
           $(".fb-messenger-checkbox").attr("origin", location.protocol.concat("//").concat(window.location
@@ -140,19 +149,29 @@
             fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));
         });
-      </script>
-      <p><button type="button" onclick="confirmOptIn()" class="btn btn-outline-primary" id="fb-button">Add to
+      </script> -->
+      <!-- <p><button type="button" onclick="confirmOptIn()" class="btn btn-outline-primary" id="fb-button">Add to
           cart</button></p>
       <div class="fb-messenger-checkbox" origin="<INIT IN JS>" page_id="2183422628589019"
         messenger_app_id="355697025159350" user_ref="<INIT IN JS>" allow_login="true" skin="light" size="xlarge"
-        center_align="true">
-        <!-- End of FB Button -->
+        center_align="true"> -->
+      <!-- End of FB Button -->
+
+      <!-- new FB-button-->
+
+      <div>
+        <p><button type="button" class="btn btn-outline-primary" id="fb-button">Add to
+            cart</button></p>
+        <div class='pwasc-container'></div>
+      </div>
+
+      <!-- End of new FB-button-->
 
     </section>
 
     <!-- Footer -->
     <section class="grid-footer">
-        <hr>
+      <hr>
       <footer class="footer">Powered by <a href="https://pushwoosh.com" target="_blank">Pushwoosh</a></footer>
     </section>
     <!-- End of Footer -->
