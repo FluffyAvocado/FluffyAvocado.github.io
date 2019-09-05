@@ -1,5 +1,0 @@
-1. Custom Prompt
-2. Channel Selector
-3. Get hwid and object with all current tags
-4. Get rid of unnecessary CSS
-5. Try full GTM integration and maybe additional GTM tags

@@ -1,7 +1,0 @@
-{
-  "name": "Vinyl Shop",
-  "short_name": "Vinyl Shop",
-  "gcm_sender_id": "299061772846",
-  "display": "standalone",
-  "gcm_user_visible_only": true
-}
